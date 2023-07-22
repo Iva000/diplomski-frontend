@@ -1,0 +1,14 @@
+.allInstructors{
+    margin-top: 20px;
+    display: flexbox;
+    align-items: center;
+}
+
+.dropDownActivity{
+    margin-left: 20px;
+    display: flexbox;
+}
+
+select{
+    width:90px;
+}
