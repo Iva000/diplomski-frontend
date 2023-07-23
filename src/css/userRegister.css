@@ -1,0 +1,39 @@
+.registerFormContainer{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.rightSideRegister{
+    margin-left: 40px;
+}
+
+.registerInput{
+    width:200px;
+    height: 25px;
+    border-radius: 7%;
+    margin-top: 5px;
+    border: 1px solid;
+    margin-bottom: 10px;
+}
+
+.buttonRegister{
+    width:440px;
+    height: 30px;
+    border-radius: 7%;
+    margin-top: 15px;
+    border: 1px solid;
+    color: aliceblue;
+    background-color: rgb(112, 39, 160);
+    border-color:  rgb(112, 39, 160);
+}
+
+.buttonRegister:hover {
+    background-color: rgb(161, 101, 201);
+    border-color: rgb(161, 101, 201);
+}
+
+.registerH1{
+    width: 500px;
+    margin-left: 435px;
+}

@@ -7,6 +7,8 @@ import Mountains from './components/Mountains';
 import axios from 'axios';
 import Instructors from './components/Instructors';
 import Equipments from './components/Equipments';
+import UserLogin from './components/UserLogin';
+import UserRegister from './components/UserRegister';
 
 function App() {
 
@@ -32,6 +34,14 @@ function App() {
         <Route
         path="equipments"
         element={<Equipments/>}/>
+
+        <Route
+        path="userLogin"
+        element={<UserLogin/>}/>
+
+        <Route
+        path="userRegister"
+        element={<UserRegister/>}/>
       
       </Routes>
       </BrowserRouter>

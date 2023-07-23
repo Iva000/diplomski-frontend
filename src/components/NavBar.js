@@ -34,7 +34,7 @@ return (
                 </li>
 
                 <li>
-                    <Link className="links" to="/">Prijavi se</Link>
+                    <Link className="links" to="/userLogin">Prijavi se</Link>
                 </li>
                 </div>
             </ul>
