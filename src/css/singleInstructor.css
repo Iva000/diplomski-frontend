@@ -3,6 +3,7 @@
     border: 3px solid rgb(195, 43, 173);
     border-radius: 5%;
     width: 30%;
+    height:300px;
     margin-bottom: 30px;
     margin-left: 35%;
     justify-content: center;
@@ -23,6 +24,7 @@
     border: 3px solid rgb(29, 185, 195);
     border-radius: 5%;
     width: 30%;
+    height:300px;
     margin-bottom: 30px;
     margin-left: 35%;
     justify-content: center;
@@ -36,4 +38,49 @@
     margin-top: 20px;
     /* margin-left: 20px; */
     margin-right: 20px;
+}
+
+.deleteInstructorButton{
+    /* width:200px;
+    height: 30px; */
+    border-radius: 7%;
+    color: aliceblue;
+    background-color: rgb(195, 43, 173);
+    border-color:  rgb(195, 43, 173);
+}
+
+.deleteInstructorButton:hover {
+    background-color: rgb(247, 10, 211);
+    border-color:  rgb(247, 10, 211);
+}
+
+.deleteInstructorButton1{
+    /* width:200px;
+    height: 30px; */
+    width:70px;
+    margin-right: 10px;
+    border-radius: 7%;
+    color: rgb(195, 43, 173);
+    background-color: aliceblue;
+    border-color:  rgb(195, 43, 173);
+}
+
+.deleteInstructorButton1:hover {
+    background-color: rgb(241, 121, 223);
+    border-color:  rgb(241, 121, 223);
+}
+
+.acceptInstructorButton{
+    /* width:200px;
+    height: 30px; */
+    width:70px;
+    border-radius: 7%;
+    color: aliceblue;
+    background-color: rgb(195, 43, 173);
+    border-color:  rgb(195, 43, 173);
+}
+
+.acceptInstructorButton:hover {
+    background-color: rgb(247, 10, 211);
+    border-color:  rgb(247, 10, 211);
 }

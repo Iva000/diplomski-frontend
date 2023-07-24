@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import "../css/instructors.css";
 
-function Instructors(){
+function Instructors({flag}){
 
     const[instructors, setInstructors]= useState([]);
     const[searchField, setSearchField]= useState("");
@@ -17,7 +17,7 @@ function Instructors(){
        })
        .catch((e)=>{console.log(e)})
     
-    }, []);
+    }, [instructors]);
 
     function handleChange(e){
         setSearchField(e.target.value);
@@ -39,7 +39,10 @@ function Instructors(){
 
     return(
         <div>
-            <h1>Naši instruktori</h1>
+            {flag==0 ? (
+                <h1>Naši instruktori</h1>
+            ): (<h1>Zahtevi za nove instruktore</h1>)}
+            
             <div className="pa2" style={{ display: "flex", marginLeft: 60 }}>
                 <input
                 className="pa3"
@@ -66,7 +69,8 @@ function Instructors(){
                 {filteredInstructors.map((instructor) => (
             <SingleInstructor
             key={instructor.id}
-            i={instructor}/>))}
+            i={instructor}
+            flag={flag}/>))}
             </div>
         </div>
     );

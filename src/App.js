@@ -9,6 +9,8 @@ import Instructors from './components/Instructors';
 import Equipments from './components/Equipments';
 import UserLogin from './components/UserLogin';
 import UserRegister from './components/UserRegister';
+import InstructorRegister from './components/InstructorRegister';
+import InstructorLogin from './components/InstructorLogin';
 
 function App() {
 
@@ -29,7 +31,7 @@ function App() {
 
         <Route
         path="instructors"
-        element={<Instructors/>}/>
+        element={<Instructors flag={0}/>}/>
 
         <Route
         path="equipments"
@@ -42,6 +44,18 @@ function App() {
         <Route
         path="userRegister"
         element={<UserRegister/>}/>
+
+        <Route
+        path="instructorRegister"
+        element={<InstructorRegister/>}/>
+
+        <Route
+        path="instructorLogin"
+        element={<InstructorLogin/>}/>
+
+        <Route
+        path="requests"
+        element={<Instructors flag={1}/>}/>
       
       </Routes>
       </BrowserRouter>

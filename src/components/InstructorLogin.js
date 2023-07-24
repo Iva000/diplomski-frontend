@@ -3,7 +3,7 @@ import axios from "axios";
 import "../css/userLogin.css";
 import { useNavigate, Link } from "react-router-dom";
 
-function UserLogin(){
+function InstructorLogin(){
 
     const[data, setData]= useState({
         email:"",
@@ -20,17 +20,13 @@ function UserLogin(){
 
     function handleSubmit(e){
         e.preventDefault();
-        axios.post("http://127.0.0.1:8000/api/loginUser", data).then((res)=>{
+        axios.post("http://127.0.0.1:8000/api/loginInstructor", data).then((res)=>{
             console.log(res.data);
+            console.log(res.data.success);
             if(res.data.success=="true"){
-                window.sessionStorage.setItem("auth_token", res.data.access_token);
-                window.sessionStorage.setItem("auth_email", data.email);
                 alert("Prijava je uspešna!");
-                if(window.sessionStorage.getItem("auth_email")=="admin@gmail.com"){
-                    navigate("/instructors")
-                }else{
-                    navigate("/mountains");
-                }
+                window.sessionStorage.setItem("auth_token", res.data.access_token);
+                //navigate("/mountains");
             }
             else{
                 alert("Email ili lozinka su neispravni!");
@@ -70,18 +66,15 @@ function UserLogin(){
                     Prijavi se
                     </button>
                 </div>
-                
-                <Link className="forInstructors" to="/instructorLogin">Prijavi se kao instruktor</Link>
             </form>
-            
 
-            <div className="messageForRegister">
+            {/* <div className="messageForRegister">
                 <p>Nemaš nalog?</p>
                 <p>Pridruži se <Link className="fun" to="/userRegister">zabavi!</Link></p>
-            </div>
+            </div> */}
         </div>
     );
 
 }
 
-export default UserLogin;
+export default InstructorLogin;
