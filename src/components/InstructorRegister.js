@@ -37,7 +37,7 @@ function InstructorRegister(){
         axios.post("http://127.0.0.1:8000/api/addInstructor", instructorData).then((res)=>{
             if(res.data.success=='true'){
                 alert("Registracija je uspešna! Proverite status prilikom prijave!")
-                navigate('/instrustorLogin');
+                navigate('/instructorLogin');
             }else{
                 alert("Nalog sa datim mejlom već postoji!");
             }

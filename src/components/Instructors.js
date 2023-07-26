@@ -8,16 +8,17 @@ function Instructors({flag}){
     const[instructors, setInstructors]= useState([]);
     const[searchField, setSearchField]= useState("");
     const[activity, setActivity] = useState("");
+
  
     useEffect(()=>{
-        axios.get("http://127.0.0.1:8000/api/instructors").then((res)=>{
-            console.log("ide po instruktore");
-         setInstructors(res.data.data); 
-         console.log("instruktori", instructors);   
-       })
-       .catch((e)=>{console.log(e)})
+            axios.get("http://127.0.0.1:8000/api/getInstructorsByStatus/" + flag).then((res)=>{
+            console.log("http://127.0.0.1:8000/api/getInstructorsByStatus/" + flag);
+            setInstructors(res.data.data);   
+            })
+            .catch((e)=>{console.log(e)})
+        
     
-    }, [instructors]);
+    },[flag]);
 
     function handleChange(e){
         setSearchField(e.target.value);
@@ -35,11 +36,11 @@ function Instructors({flag}){
         else{
             return instructor.activity==activity && (instructor.name.toLowerCase().includes(searchField.toLowerCase()) || instructor.surname.toLowerCase().includes(searchField.toLowerCase()))
         }
-        });
+    });
 
     return(
         <div>
-            {flag==0 ? (
+            {flag==1 ? (
                 <h1>Naši instruktori</h1>
             ): (<h1>Zahtevi za nove instruktore</h1>)}
             
@@ -66,11 +67,12 @@ function Instructors({flag}){
             </div>
             </div>
             <div className="allInstructors">
-                {filteredInstructors.map((instructor) => (
+            {filteredInstructors.map((instructor) => (
             <SingleInstructor
             key={instructor.id}
             i={instructor}
-            flag={flag}/>))}
+            flag={flag}/>))
+            }
             </div>
         </div>
     );

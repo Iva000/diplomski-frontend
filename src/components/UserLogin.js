@@ -5,7 +5,7 @@ import { useNavigate, Link } from "react-router-dom";
 
 function UserLogin(){
 
-    const[data, setData]= useState({
+    const [data, setData]= useState({
         email:"",
         password:""
     });
@@ -21,9 +21,8 @@ function UserLogin(){
     function handleSubmit(e){
         e.preventDefault();
         axios.post("http://127.0.0.1:8000/api/loginUser", data).then((res)=>{
-            console.log(res.data);
             if(res.data.success=="true"){
-                window.sessionStorage.setItem("auth_token", res.data.access_token);
+                window.sessionStorage.setItem("auth_token", res.data.token_type);
                 window.sessionStorage.setItem("auth_email", data.email);
                 alert("Prijava je uspešna!");
                 if(window.sessionStorage.getItem("auth_email")=="admin@gmail.com"){

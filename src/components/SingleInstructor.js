@@ -42,11 +42,11 @@ function SingleInstructor({i, flag}){
                 <p>Ski škola: {i.skiSchool}</p>
                 <p>Iskustvo: {i.experience}</p>
                 <p>Cena časa: {i.price}</p>
-                {window.sessionStorage.getItem("auth_email")=="admin@gmail.com" && flag ==0 ? (
+                {window.sessionStorage.getItem("auth_email")=="admin@gmail.com" && flag ==1 ? (
                     <button className="deleteInstructorButton" onClick={deleteInstructor}>Ukloni</button>
                     
                 ):(<></>)}
-                {window.sessionStorage.getItem("auth_email")=="admin@gmail.com" && flag ==1 ? (
+                {window.sessionStorage.getItem("auth_email")=="admin@gmail.com" && flag ==0 ? (
                     <div>
                         <button className="deleteInstructorButton1" onClick={deleteInstructor}>Odbij</button>
                         <button className="acceptInstructorButton" onClick={acceptInstructor}>Prihvati</button>
@@ -68,11 +68,11 @@ function SingleInstructor({i, flag}){
                 <p>Ski škola: {i.skiSchool}</p>
                 <p>Iskustvo: {i.experience}</p>
                 <p>Cena časa: {i.price}</p>
-                {window.sessionStorage.getItem("auth_email")=="admin@gmail.com" && flag ==0 ? (
+                {window.sessionStorage.getItem("auth_email")=="admin@gmail.com" && flag ==1 ? (
                     <button className="deleteInstructorButton" onClick={deleteInstructor}>Ukloni</button>
                     
                 ):(<></>)}
-                {window.sessionStorage.getItem("auth_email")=="admin@gmail.com" && flag ==1 ? (
+                {window.sessionStorage.getItem("auth_email")=="admin@gmail.com" && flag ==0 ? (
                     <div>
                         <button className="deleteInstructorButton1" onClick={deleteInstructor}>Odbij</button>
                         <button className="acceptInstructorButton" onClick={acceptInstructor}>Prihvati</button>

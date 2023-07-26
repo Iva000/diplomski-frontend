@@ -31,7 +31,7 @@ function App() {
 
         <Route
         path="instructors"
-        element={<Instructors flag={0}/>}/>
+        element={<Instructors flag={1}/>}/>
 
         <Route
         path="equipments"
@@ -55,7 +55,7 @@ function App() {
 
         <Route
         path="requests"
-        element={<Instructors flag={1}/>}/>
+        element={<Instructors flag={0}/>}/>
       
       </Routes>
       </BrowserRouter>

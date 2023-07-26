@@ -5,7 +5,7 @@ import { useNavigate, Link } from "react-router-dom";
 
 function InstructorLogin(){
 
-    const[data, setData]= useState({
+    const [data, setData]= useState({
         email:"",
         password:""
     });
@@ -21,8 +21,6 @@ function InstructorLogin(){
     function handleSubmit(e){
         e.preventDefault();
         axios.post("http://127.0.0.1:8000/api/loginInstructor", data).then((res)=>{
-            console.log(res.data);
-            console.log(res.data.success);
             if(res.data.success=="true"){
                 alert("Prijava je uspešna!");
                 window.sessionStorage.setItem("auth_token", res.data.access_token);
@@ -34,7 +32,7 @@ function InstructorLogin(){
         })
         .catch((e) => {
             console.log(e);
-            alert("Email ili lozinka su obavezni!");
+            alert("Email i lozinka su obavezni!");
         });
     }
 
