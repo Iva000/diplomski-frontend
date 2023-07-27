@@ -46,8 +46,9 @@ function NavBar(){
                  <li>
                      <Link className="profilelinks" to="/"><FaShoppingCart size={24} /></Link>
                  </li>
+
                  <li>
-                     <Link className="links" to="/"><FaUserCircle size={24} /></Link>
+                     <Link className="links" to="/" onClick={handleLogout}><FaUserCircle size={24} /></Link>
                  </li>
                  </div>
              </ul>
@@ -73,6 +74,36 @@ function NavBar(){
 
                     <li>
                         <Link className="logoutLink" to="/" onClick={handleLogout}>Odjavi se</Link>
+                    </li>
+                    </div>
+                </ul>
+            </nav>
+        </div>
+        );
+    }else if(window.sessionStorage.getItem('auth_token')=="instructor"){
+        return(
+            <div className="container">
+            <nav>
+                <ul className="nav-bar">
+                    <div className="justLinks">
+                    <li>
+                        <img src={logo} alt="logo" className="photo"></img>
+                    </li>
+    
+                    <li>
+                        <Link className="links" to="/schedule">Raspored</Link>
+                    </li>
+    
+                    <li>
+                        <Link className="links" to="/">Zahtevi</Link>
+                    </li>
+
+                    <li>
+                        <Link className="links" to="/addPeriod">Dodaj</Link>
+                    </li>
+
+                    <li>
+                        <Link className="links" to="/" onClick={handleLogout}><FaUserCircle size={24} /></Link>
                     </li>
                     </div>
                 </ul>

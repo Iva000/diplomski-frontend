@@ -1,0 +1,54 @@
+.addPeriodExplanation{
+    width: 550px;
+    margin-left: 400px;
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+
+.inputFrom{
+    margin-right: 20px;
+    width:150px;
+    height: 25px;
+    border-radius: 7%;
+    margin-top: 5px;
+    border: 1px solid;
+    margin-bottom: 10px;
+}
+
+.inputTo{
+    margin-left: 20px;
+    width:150px;
+    height: 25px;
+    border-radius: 7%;
+    margin-top: 5px;
+    border: 1px solid;
+    margin-bottom: 10px;
+}
+
+.addPeriodFirst{
+    margin-bottom: 20px;
+}
+
+.addPeriodButton{
+    width:380px;
+    height: 30px;
+    border-radius: 7%;
+    margin-top: 35px;
+    border: 1px solid;
+    color: aliceblue;
+    background-color: rgb(112, 39, 160);
+    border-color:  rgb(112, 39, 160);
+}
+
+.addPeriodButton:hover {
+    background-color: rgb(161, 101, 201);
+    border-color: rgb(161, 101, 201);
+}
+
+.addPeriodLabel1{
+    margin-right: 300px;
+}
+
+.addPeriodLabel2{
+    margin-right: 250px;
+}

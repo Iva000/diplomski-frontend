@@ -23,8 +23,11 @@ function InstructorLogin(){
         axios.post("http://127.0.0.1:8000/api/loginInstructor", data).then((res)=>{
             if(res.data.success=="true"){
                 alert("Prijava je uspešna!");
-                window.sessionStorage.setItem("auth_token", res.data.access_token);
-                //navigate("/mountains");
+                window.sessionStorage.setItem("auth_token", res.data.token_type);
+                window.sessionStorage.setItem("auth_instructor", res.data.instructor.id);
+                console.log("res.data", res.data);
+                console.log("res.data.instructor", res.data.instructor);
+                navigate("/schedule");
             }
             else{
                 alert("Email ili lozinka su neispravni!");

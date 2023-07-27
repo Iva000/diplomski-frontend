@@ -11,6 +11,9 @@ import UserLogin from './components/UserLogin';
 import UserRegister from './components/UserRegister';
 import InstructorRegister from './components/InstructorRegister';
 import InstructorLogin from './components/InstructorLogin';
+import Schedule from './components/Schedule';
+import AddPeriod from './components/AddPeriod';
+import InstructorClasses from './components/InstructorClasses';
 
 function App() {
 
@@ -56,6 +59,18 @@ function App() {
         <Route
         path="requests"
         element={<Instructors flag={0}/>}/>
+
+        <Route
+        path="schedule"
+        element={<Schedule/>}/>
+
+        <Route
+        path="addPeriod"
+        element={<AddPeriod/>}/>
+
+        <Route
+        path="instructorClasses/:id"
+        element={<InstructorClasses/>}/>
       
       </Routes>
       </BrowserRouter>

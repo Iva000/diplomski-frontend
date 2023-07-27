@@ -1,7 +1,16 @@
 import "../css/singleInstructor.css";
 import axios from "axios";
+import InstructorClasses from "./InstructorClasses";
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { useNavigate, Link } from "react-router-dom";
+//import { useHistory } from 'react-router-dom';
 
 function SingleInstructor({i, flag}){
+
+    //const history=useHistory();
+
+    //let navigate=useNavigate();
+    const ins = i.id;
 
     function deleteInstructor(){
         i.status=2;
@@ -41,7 +50,7 @@ function SingleInstructor({i, flag}){
                 <p>Planina: {i.mountain.name}</p>
                 <p>Ski škola: {i.skiSchool}</p>
                 <p>Iskustvo: {i.experience}</p>
-                <p>Cena časa: {i.price}</p>
+                <p>Cena časa: {i.price}€</p>
                 {window.sessionStorage.getItem("auth_email")=="admin@gmail.com" && flag ==1 ? (
                     <button className="deleteInstructorButton" onClick={deleteInstructor}>Ukloni</button>
                     
@@ -52,6 +61,12 @@ function SingleInstructor({i, flag}){
                         <button className="acceptInstructorButton" onClick={acceptInstructor}>Prihvati</button>
                     </div>
                     
+                ):(<></>)}
+                {window.sessionStorage.getItem("auth_token")=="user" && window.sessionStorage.getItem("auth_email")!=="admin@gmail.com" ? (
+                    //<button className="deleteInstructorButton" onClick={showClasses}>Vidi termine</button>
+                    <Link to= {'/instructorClasses/'+i.id} className="deleteInstructorButton">
+        Vidi termine
+      </Link>
                 ):(<></>)}
                 </div>
                 <div>
@@ -78,6 +93,12 @@ function SingleInstructor({i, flag}){
                         <button className="acceptInstructorButton" onClick={acceptInstructor}>Prihvati</button>
                     </div>
                     
+                ):(<></>)}
+                {window.sessionStorage.getItem("auth_token")=="user" && window.sessionStorage.getItem("auth_email")!=="admin@gmail.com" ? (
+                    //<button className="deleteInstructorButton" onClick={showClasses}>Vidi termine</button>
+                    <Link to= {'/instructorClasses/'+i.id} className="deleteInstructorButton">
+        Vidi termine
+      </Link>
                 ):(<></>)}
                 </div>
             </div>)
