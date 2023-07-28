@@ -24,6 +24,7 @@ function UserLogin(){
             if(res.data.success=="true"){
                 window.sessionStorage.setItem("auth_token", res.data.token_type);
                 window.sessionStorage.setItem("auth_email", data.email);
+                window.sessionStorage.setItem("auth_user", res.data.user.id);
                 alert("Prijava je uspešna!");
                 if(window.sessionStorage.getItem("auth_email")=="admin@gmail.com"){
                     navigate("/instructors")

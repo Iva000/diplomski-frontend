@@ -29,7 +29,7 @@ function InstructorClasses(){
 
     return(
         <div>
-            <h1>{instructorClasses[0].instructor.name} {instructorClasses[0].instructor.surname}</h1> 
+            <h1>Pronađi termin koji ti odgovara!</h1> 
             <div>
             {instructorClasses.map((c) => (
             <SingleClass
