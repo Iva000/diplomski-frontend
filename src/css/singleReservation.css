@@ -1,0 +1,62 @@
+.reservationCard{
+    /* display: flex; */
+    border: 3px solid rgb(195, 43, 173);
+    border-radius: 5%;
+    width: 800px;
+    height:300px;
+    margin-bottom: 30px;
+    margin-left: 20%;
+    justify-content: center;
+}
+
+.reservationButton{
+    /* position: absolute;
+    bottom: 0; */
+    height: 30px;
+    border-radius: 7%;
+    color: aliceblue;
+    background-color: rgb(195, 43, 173);
+    border-color:  rgb(195, 43, 173);
+}
+
+.reservationButton:hover{
+    background-color: rgb(247, 10, 211);
+    border-color:  rgb(247, 10, 211);
+}
+
+.reservationClass{
+    display: flex;
+}
+
+.reservationClass1{
+    margin-left: 30px;
+    margin-right: 100px;
+}
+
+.statusBlack{
+    font-weight: bold;
+}
+
+.statusGreen{
+    font-weight: bold;
+    color: green;
+}
+
+.statusRed{
+    font-weight: bold;
+    color: red;
+}
+
+.reservationCardRequest{
+    border: 3px solid rgb(195, 43, 173);
+    border-radius: 5%;
+    width: 500px;
+    height:300px;
+    margin-bottom: 30px;
+    margin-left: 20%;
+    justify-content: center;
+}
+
+.reservationCardRequestContainer{
+    display: flex;
+}

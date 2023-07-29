@@ -1,6 +1,6 @@
 .justLinks{
     background-color: rgb(112, 39, 160);
-    height: 50px;
+    /* height: 50px; */
     display: flex;
     align-items: center;
     padding-left: 15px;
@@ -10,7 +10,7 @@ ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    /* overflow: hidden; */
     position: fixed;
     top: 0;
     left: 0;
@@ -81,3 +81,39 @@ img{
     height: 40px;
     margin-right: 10px;
 }
+
+.profile-icon{
+    position: absolute;
+    right: 10px;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left:-130px;
+    width:150px;
+    background-color: rgb(112, 39, 160);
+    border-radius: 4px;
+    padding: 8px;
+    z-index: 1;
+  }
+  
+  .dropdown-menu li {
+    list-style: none;
+    padding: 4px 8px;
+  }
+  
+  .dropdown-menu li + li {
+    margin-top: 8px;
+  }
+  
+  .dropdown-menu li a {
+    color: aliceblue;
+    text-decoration: none;
+  }
+  
+  .dropdown-menu li:hover {
+    background-color: rgb(161, 101, 201);
+  }
+  
+  

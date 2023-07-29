@@ -1,4 +1,3 @@
-import SingleInstructor from "./SingleInstructor";
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import SingleEquipment from "./SingleEquipment";

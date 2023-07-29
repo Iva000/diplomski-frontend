@@ -7,7 +7,13 @@ import { FaShoppingCart, FaUserCircle } from 'react-icons/fa';
 
 function NavBar(){
 
+    const [showDropdown, setShowDropdown] = useState(false)
+
     let navigate=useNavigate();
+
+    const handleProfileIconHover = (e) => {
+        setShowDropdown(e.type === 'mouseenter');
+    };
 
     function handleLogout(){
         //axios.post("http://127.0.0.1:8000/api/logoutUser").then((res)=>{
@@ -44,12 +50,37 @@ function NavBar(){
                  </li>
 
                  <li>
-                     <Link className="profilelinks" to="/"><FaShoppingCart size={24} /></Link>
+                     <Link className="profilelinks" to="/cart"><FaShoppingCart size={24} /></Link>
                  </li>
 
-                 <li>
+                 {/* <li>
                      <Link className="links" to="/" onClick={handleLogout}><FaUserCircle size={24} /></Link>
-                 </li>
+                 </li> */}
+                 <li
+                    className="profile-icon"
+                    onMouseEnter={handleProfileIconHover}
+                    onMouseLeave={handleProfileIconHover}
+                    >
+                        <FaUserCircle size={24} color="white"/>
+                            {showDropdown && (
+                            <ul className="dropdown-menu">
+                                <li>
+                                    <Link to="/myReservations">Moje rezervacije</Link>
+                                </li>
+                                <br/>
+                                <li>
+                                    <Link to="/editProfile">Izmeni profil</Link>
+                                </li>
+                                <br/>
+                                <li>
+                                    <Link to="/" onClick={handleLogout}>
+                                        Odjavi se
+                                    </Link>
+                                </li>
+                                
+                            </ul>
+                            )}
+                    </li>
                  </div>
              </ul>
          </nav>
@@ -95,15 +126,35 @@ function NavBar(){
                     </li>
     
                     <li>
-                        <Link className="links" to="/">Zahtevi</Link>
+                        <Link className="links" to="/classReservations">Zahtevi</Link>
                     </li>
 
                     <li>
                         <Link className="links" to="/addPeriod">Dodaj</Link>
                     </li>
 
-                    <li>
+                    {/* <li>
                         <Link className="links" to="/" onClick={handleLogout}><FaUserCircle size={24} /></Link>
+                    </li> */}
+                    <li
+                    className="profile-icon"
+                    onMouseEnter={handleProfileIconHover}
+                    onMouseLeave={handleProfileIconHover}
+                    >
+                        <FaUserCircle size={24} color="white"/>
+                            {showDropdown && (
+                            <ul className="dropdown-menu">
+                                <li>
+                                    <Link to="/editProfile">Izmeni profil</Link>
+                                </li>
+                                <br/>
+                                <li>
+                                    <Link to="/" onClick={handleLogout}>
+                                        Odjavi se
+                                    </Link>
+                                </li>
+                            </ul>
+                            )}
                     </li>
                     </div>
                 </ul>

@@ -10,6 +10,10 @@ function SingleEquipment({e}){
         equipmentInformation:null
     });
 
+    // const [forUpdate, setForUpdate]= useState({
+    //     totalPrice:""
+    // });
+
     function handleInput(e){
         let newData = reservation;
         newData[e.target.name]= e.target.value;

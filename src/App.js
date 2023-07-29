@@ -14,6 +14,9 @@ import InstructorLogin from './components/InstructorLogin';
 import Schedule from './components/Schedule';
 import AddPeriod from './components/AddPeriod';
 import InstructorClasses from './components/InstructorClasses';
+import Cart from './components/Cart';
+import MyReservations from './components/MyReservations';
+import ClassReservations from './components/ClassReservations';
 
 function App() {
 
@@ -72,6 +75,18 @@ function App() {
         path="instructorClasses/:id"
         element={<InstructorClasses/>}/>
       
+        <Route
+        path="cart"
+        element={<Cart/>}/>
+
+        <Route
+        path="myReservations"
+        element={<MyReservations/>}/>
+
+        <Route
+        path="classReservations"
+        element={<ClassReservations/>}/>
+
       </Routes>
       </BrowserRouter>
       

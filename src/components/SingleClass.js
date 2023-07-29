@@ -10,7 +10,7 @@ function SingleClass({c}){
         totalPrice:c.price,
         period_id:c.id,
         user_id:window.sessionStorage.getItem('auth_user'),
-        status:0,
+        status:-1,
     };
 
     function makeReservation(){
