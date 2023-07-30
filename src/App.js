@@ -17,6 +17,8 @@ import InstructorClasses from './components/InstructorClasses';
 import Cart from './components/Cart';
 import MyReservations from './components/MyReservations';
 import ClassReservations from './components/ClassReservations';
+import UserEditProfile from './components/UserEditProfile';
+import InstructorEditProfile from './components/InstructorEditProfile';
 
 function App() {
 
@@ -86,6 +88,14 @@ function App() {
         <Route
         path="classReservations"
         element={<ClassReservations/>}/>
+
+        <Route
+        path="userEditProfile"
+        element={<UserEditProfile/>}/>
+
+        <Route
+        path="instructorEditProfile"
+        element={<InstructorEditProfile/>}/>
 
       </Routes>
       </BrowserRouter>

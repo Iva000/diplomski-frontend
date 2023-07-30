@@ -69,7 +69,7 @@ function NavBar(){
                                 </li>
                                 <br/>
                                 <li>
-                                    <Link to="/editProfile">Izmeni profil</Link>
+                                    <Link to="/userEditProfile">Izmeni profil</Link>
                                 </li>
                                 <br/>
                                 <li>
@@ -145,7 +145,7 @@ function NavBar(){
                             {showDropdown && (
                             <ul className="dropdown-menu">
                                 <li>
-                                    <Link to="/editProfile">Izmeni profil</Link>
+                                    <Link to="/instructorEditProfile">Izmeni profil</Link>
                                 </li>
                                 <br/>
                                 <li>
