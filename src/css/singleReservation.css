@@ -11,8 +11,9 @@
 
 .reservationButton{
     /* position: absolute;
-    bottom: 0; */
+    bottom: 10px; */
     height: 30px;
+    width:70px;
     border-radius: 7%;
     color: aliceblue;
     background-color: rgb(195, 43, 173);
@@ -29,8 +30,8 @@
 }
 
 .reservationClass1{
-    margin-left: 30px;
-    margin-right: 100px;
+    /* margin-left: 30px;
+    margin-right: 100px; */
 }
 
 .statusBlack{
@@ -53,10 +54,54 @@
     width: 500px;
     height:300px;
     margin-bottom: 30px;
-    margin-left: 20%;
-    justify-content: center;
+    margin-left: 430px;
+    /* justify-content: center; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .reservationCardRequestContainer{
     display: flex;
+    justify-content: space-between;
 }
+
+.reservationButton1{
+    /* width:200px;
+    height: 30px; */
+    width:70px;
+    height: 30px;
+    margin-right: 30px;
+    margin-bottom: 30px;
+    border-radius: 7%;
+    color: rgb(195, 43, 173);
+    background-color: aliceblue;
+    border-color:  rgb(195, 43, 173);
+}
+
+.reservationButton1:hover {
+    background-color: rgb(241, 121, 223);
+    border-color:  rgb(241, 121, 223);
+}
+
+  .rcrc1 {
+    text-align: center;
+    margin-left: 50px;
+  }
+  
+  .rcrc1 h3,
+  .rcrc1 p {
+    display: block;
+    text-align: center;
+  }
+
+  .rcrc2 {
+    text-align: center;
+    margin-right: 50px;
+  }
+  
+  .rcrc2,
+  .rcrc2 p {
+    display: block;
+    text-align: center;
+  }

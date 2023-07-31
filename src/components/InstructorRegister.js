@@ -33,19 +33,22 @@ function InstructorRegister(){
 
     function handleSubmit(e){
         console.log(instructorData);
-        e.preventDefault();
-        axios.post("http://127.0.0.1:8000/api/addInstructor", instructorData).then((res)=>{
-            if(res.data.success=='true'){
-                alert("Registracija je uspešna! Proverite status prilikom prijave!")
-                navigate('/instructorLogin');
-            }else{
+        if(instructorData.name && instructorData.surname && instructorData.phoneNumber && instructorData.experience && instructorData.activity && instructorData.mountain_id && instructorData.skiSchool && instructorData.price && instructorData.description && instructorData.photo && instructorData.email && instructorData.password){
+            e.preventDefault();
+            axios.post("http://127.0.0.1:8000/api/addInstructor", instructorData).then((res)=>{
+                if(res.data.success=='true'){
+                    alert("Registracija je uspešna! Proverite status prilikom prijave!")
+                    navigate('/instructorLogin');
+                }else{
+                    alert("Nalog sa datim mejlom već postoji!");
+                }
+            }).catch((e)=>{
+                console.log(e);
                 alert("Nalog sa datim mejlom već postoji!");
-            }
-        }).catch((e)=>{
-            console.log(e);
-            alert("Nalog sa datim mejlom već postoji!");
-        })
-
+            })
+        }else{
+            alert("Sva polja moraju biti popunjena!");
+        }
     }
 
     return(
@@ -97,6 +100,7 @@ function InstructorRegister(){
                         name="activity"
                         className="registerInstructorBox"
                         onInput={handleInput}>
+                            <option value=""></option>
                             <option value="skijanje">skijanje</option>
                             <option value="bordanje">bordanje</option>
                         </select>
@@ -107,7 +111,8 @@ function InstructorRegister(){
                         <select name="mountain_id"
                         className="registerInstructorBox"
                         onInput={handleInput}>
-                            <option value={1}>
+                        <option value=""></option>
+                            <option value="1">
                                 Tornik
                             </option>
 

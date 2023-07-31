@@ -25,7 +25,8 @@ function UserRegister(){
 
     function handleSubmit(e){
         e.preventDefault();
-        axios.post("http://127.0.0.1:8000/api/registerNewUser", registerData).then((res)=>{
+        if(registerData.name && registerData.surname && registerData.gender && registerData.phoneNumber && registerData.email && registerData.password){
+            axios.post("http://127.0.0.1:8000/api/registerNewUser", registerData).then((res)=>{
             if(res.data.success=="true"){
                 alert("Prijava je uspešna!");
                 navigate('/userLogin');
@@ -37,6 +38,10 @@ function UserRegister(){
             console.log(e);
             alert("Nalog sa datim mejlom već postoji!");
         })
+        }else{
+            alert("Sva polja moraju biti popunjena!")
+        }
+        
     }
 
     return(
@@ -71,6 +76,7 @@ function UserRegister(){
                         className="registerInput"
                         placeholder="izaberite pol"
                         onInput={handleInput}>
+                            <option value=""></option>
                             <option value="ženksi">ženski</option>
                             <option value="muški">muški</option>
                         </select>

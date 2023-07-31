@@ -62,13 +62,14 @@ function InstructorEditProfile(){
 
                         <label>Aktivnost</label>
                         <br/>
-                        <input
-                        type="text"
+                        <select
                         name="activity"
-                        placeholder={instructorInfo.activity}
+                        className="registerInstructorBox"
                         onInput={handleInput}
-                        className="editInput"
-                        ></input>
+                        defaultValue={instructorInfo.activity}>
+                            <option value="skijanje">skijanje</option>
+                            <option value="bordanje">bordanje</option>
+                        </select>
                         <br/>
                         </div>
 
@@ -84,17 +85,6 @@ function InstructorEditProfile(){
                         ></input>
                         <br/>
 
-                        <label>Planina</label>
-                        <br/>
-                        <input
-                        type="text"
-                        name="mountain"
-                        placeholder={instructorInfo.mountain_id}
-                        onInput={handleInput}
-                        className="editInput"
-                        ></input>
-                        <br/>
-
                         <label>Cena časa</label>
                         <br/>
                         <input
@@ -104,6 +94,30 @@ function InstructorEditProfile(){
                         onInput={handleInput}
                         className="editInput"
                         ></input>
+                        <br/>
+
+                        <label>Planina</label>
+                        <br/>
+                        <select name="mountain_id"
+                        className="registerInstructorBox"
+                        onInput={handleInput}
+                        defaultValue={instructorInfo.mountain_id}>
+                            <option value="1">
+                                Tornik
+                            </option>
+
+                            <option value="2">
+                                Kopaonik
+                            </option>
+
+                            <option value="3">
+                                Stara planina
+                            </option>
+
+                            <option value="4">
+                                Brezovica
+                            </option>
+                        </select>
                         <br/>
                         </div>
 

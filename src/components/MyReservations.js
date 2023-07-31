@@ -7,7 +7,7 @@ function MyReservations(){
     const[reservations, setReservations]= useState([]);
 
     useEffect(()=>{
-        axios.get("http://127.0.0.1:8000/api/getUsersReservations/"+window.sessionStorage.getItem('auth_user')+"/"+"0")
+        axios.get("http://127.0.0.1:8000/api/getPreviousUsersReservations/"+window.sessionStorage.getItem('auth_user'))
         .then((res)=>{
             console.log(res.data.data);
             setReservations(res.data.data);

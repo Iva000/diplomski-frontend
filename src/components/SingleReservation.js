@@ -66,18 +66,43 @@ function SingleReservation({r, flag}){
                             <p>{r.user.phoneNumber}</p>
                         </div>
 
-                        <div>
+                        <div className="rcrc2">
                             {equipment.map((e)=>(
-                                <div className="rcrc1">
+                                <div>
                                     <p >{e.name}, {e.pivot.equipmentInformation}</p>
                                 </div>
                             ))}
-                            <p>Ukupno: {r.totalPrice}€</p>
+                            <h3>Ukupno: {r.totalPrice}€</h3>
                         </div>
                 </div>
-            
-            <button className="reservationButton" onClick={declineRequest}>Odbij</button>
+            <div>
+            <button className="reservationButton1" onClick={declineRequest}>Odbij</button>
             <button className="reservationButton" onClick={acceptRequest}>Prihvati</button>
+            </div>
+            
+        </div>
+        );
+    }if(flag==2){
+        return(
+            <div className="reservationCardRequest">
+                <div className="reservationCardRequestContainer">
+                        <div className="rcrc1">
+                            <h3 className="reservationClass1">{r.period.date}</h3>
+                            {/* <br/> */}
+                            <h3 className="reservationClass1">{r.period.time}h</h3>
+                            <p>{r.user.name} {r.user.surname}</p>
+                            <p>{r.user.phoneNumber}</p>
+                        </div>
+
+                        <div  className="rcrc2">
+                            {equipment.map((e)=>(
+                                <div>
+                                    <p >{e.name}, {e.pivot.equipmentInformation}</p>
+                                </div>
+                            ))}
+                            <h3>Ukupno: {r.totalPrice}€</h3>
+                        </div>
+                </div>
         </div>
         );
     }

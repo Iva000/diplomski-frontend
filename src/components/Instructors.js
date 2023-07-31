@@ -12,7 +12,6 @@ function Instructors({flag}){
  
     useEffect(()=>{
             axios.get("http://127.0.0.1:8000/api/getInstructorsByStatus/" + flag).then((res)=>{
-            console.log("http://127.0.0.1:8000/api/getInstructorsByStatus/" + flag);
             setInstructors(res.data.data);   
             })
             .catch((e)=>{console.log(e)})

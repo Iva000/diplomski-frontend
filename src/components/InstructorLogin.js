@@ -22,12 +22,20 @@ function InstructorLogin(){
         e.preventDefault();
         axios.post("http://127.0.0.1:8000/api/loginInstructor", data).then((res)=>{
             if(res.data.success=="true"){
-                alert("Prijava je uspešna!");
-                window.sessionStorage.setItem("auth_token", res.data.token_type);
-                window.sessionStorage.setItem("auth_instructor", res.data.instructor.id);
-                console.log("res.data", res.data);
-                console.log("res.data.instructor", res.data.instructor);
-                navigate("/schedule");
+                if(res.data.instructor.status==1){
+                    alert("Prijava je uspešna!");
+                    window.sessionStorage.setItem("auth_token", res.data.token_type);
+                    window.sessionStorage.setItem("auth_instructor", res.data.instructor.id);
+                    console.log("res.data", res.data);
+                    console.log("res.data.instructor", res.data.instructor);
+                    navigate("/schedule");
+                }
+                if(res.data.instructor.status==0){
+                    alert("Prijava na sajt nije obrađena, pokušajte kasnije!");
+                }
+                if(res.data.instructor.status==2){
+                    alert("Vaš zahtev za prijavu na sajt je odbijen!");
+                }
             }
             else{
                 alert("Email ili lozinka su neispravni!");
