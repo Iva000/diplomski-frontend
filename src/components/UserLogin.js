@@ -27,7 +27,7 @@ function UserLogin(){
                 window.sessionStorage.setItem("auth_user", res.data.user.id);
                 alert("Prijava je uspešna!");
                 if(window.sessionStorage.getItem("auth_email")=="admin@gmail.com"){
-                    navigate("/instructors")
+                    navigate("/requests")
                 }else{
                     navigate("/mountains");
                 }

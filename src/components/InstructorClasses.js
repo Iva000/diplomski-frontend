@@ -5,12 +5,7 @@ import SingleClass from './SingleClass';
 
 function InstructorClasses(){
 
-    // const location = useLocation();
-    // const i = new URLSearchParams(location.search);
-    // const location = useLocation();
-    // const i = location.state;
     const [instructorClasses, setClasses]= useState([]);
-    const [instructor, setInstructor] = useState([]);
     const {id} =useParams();
 
     console.log(id);
@@ -19,11 +14,7 @@ function InstructorClasses(){
         console.log("salje u termine");
         
         axios.get("http://127.0.0.1:8000/api/getClass/"+id).then((res)=>{
-            console.log(res.data.data);
             setClasses(res.data.data);
-            //setInstructor(instructorClasses[0].instructor);
-            //console.log(instructor);
-            console.log(instructorClasses[0]);
         });
     }, []);
 

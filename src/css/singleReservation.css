@@ -27,6 +27,7 @@
 
 .reservationClass{
     display: flex;
+    margin-left: 15px;
 }
 
 .reservationClass1{
@@ -84,6 +85,23 @@
     border-color:  rgb(241, 121, 223);
 }
 
+.reservationButton2{
+    height: 25px;
+    width:150px;
+    border-radius: 7%;
+    color: aliceblue;
+    background-color: rgb(195, 43, 173);
+    border-color:  rgb(195, 43, 173);
+    margin-bottom: 10px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.reservationButton2:hover{
+    background-color: rgb(247, 10, 211);
+    border-color:  rgb(247, 10, 211);
+}
+
   .rcrc1 {
     text-align: center;
     margin-left: 50px;
@@ -105,3 +123,20 @@
     display: block;
     text-align: center;
   }
+
+  .x{
+    position: absolute;
+    right: 330px;
+  }
+
+  .price{
+    position: absolute;
+    right: 390px;
+  }
+
+  /* .buttonsForReservation{
+    margin-top: auto;
+    position: absolute;
+    bottom: 150px;
+    left: 450px;
+  } */

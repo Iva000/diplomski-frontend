@@ -12,7 +12,12 @@ function Cart(){
             console.log(res.data.data);
             setReservations(res.data.data);
         })
-    },[])
+    },[]);
+    
+    function handleReturnValue(data){
+        let newReservations = reservations.filter((res)=> res.id!=data);
+        setReservations(newReservations);
+    };
 
     return(
         <div>
@@ -24,6 +29,7 @@ function Cart(){
                     key={reservation.id}
                     r={reservation}
                     flag={-1}
+                    onReturnValue={handleReturnValue}
                     />
                 ))}
             </div>

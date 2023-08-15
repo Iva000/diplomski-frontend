@@ -1,10 +1,20 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import format from "date-fns/format";
 import "../css/singleReservation.css";
 
-function SingleReservation({r, flag}){
+function SingleReservation({r, flag, onReturnValue, onAccept}){
 
     const[equipment, setEquipment]=useState([]);
+
+    const[totalPriceReservation, setTotalPrice]=useState(r.totalPrice);
+
+    const currentDate= new Date(r.period.date);
+
+    const today = format(currentDate, 'dd.MM.yyyy.');
+
+    let navigate = useNavigate();
 
     useEffect(()=>{
         axios.get("http://127.0.0.1:8000/api/getEquipmentReservation/"+r.id).then((res)=>{
@@ -12,26 +22,15 @@ function SingleReservation({r, flag}){
             console.log("preuzeta oprema: ",res.data.reservation_equipment)
         })
 
-    },[])
-
-    // equipment.forEach(element => {
-    //         r.totalPrice=r.totalPrice+element.price;
-    //         console.log("cena po casu: ", r.id," je ",r.totalPrice);
-    //         callUpdate();
-    // });
-
-    // function callUpdate(){
-    //     axios.post("http://127.0.0.1:8000/api/updateReservation", r).then((res)=>{
-    //         console.log(res);
-    //     })
-    // }
+    },[]);
 
     function sendRequest(){
         r.status=0;
         axios.post("http://127.0.0.1:8000/api/updateReservation", r).then((res)=>{
             console.log(res);
             alert("Zahtev je uspešno poslat!");
-        })
+        });
+        sendDataToParent(r.id);
     }
 
     function acceptRequest(){
@@ -44,6 +43,8 @@ function SingleReservation({r, flag}){
             console.log(res);
             alert("Zahtev je uspešno prihvaćen!");
         })
+        //sendDataToParent(r.id);
+        onAccept(r);
     }
 
     function declineRequest(){
@@ -52,14 +53,44 @@ function SingleReservation({r, flag}){
             console.log(res);
             alert("Zahtev je uspešno odbijen!");
         })
+        sendDataToParent(r.id);
     }
+
+    function giveupRequest(){
+        r.status=3;
+        axios.post("http://127.0.0.1:8000/api/updateReservation", r).then((res)=>{
+            console.log(res);
+            alert("Šablon rezervacije je izbrisan!");
+        })
+        sendDataToParent(r.id);
+    }
+
+    function removeComponent(e){
+        console.log("izbacuje");
+        console.log(e);
+        axios.delete("http://127.0.0.1:8000/api/deleteEquipmentReservation/"+r.id+"/"+e).then((res)=>{
+            let newEquipment= equipment.filter((eq)=> eq.id!=e);
+            setEquipment(newEquipment);
+            setTotalPrice(res.data.newPrice);
+        })
+    }
+
+    function updateReservation(){
+        window.sessionStorage.setItem("reservation_id", r.id);
+        navigate("/equipments");
+
+    }
+    
+    function sendDataToParent(id){
+        onReturnValue(id);
+    };
 
     if(flag==1){
         return(
             <div className="reservationCardRequest">
                 <div className="reservationCardRequestContainer">
                         <div className="rcrc1">
-                            <h3 className="reservationClass1">{r.period.date}</h3>
+                            <h3 className="reservationClass1">{today}</h3>
                             {/* <br/> */}
                             <h3 className="reservationClass1">{r.period.time}h</h3>
                             <p>{r.user.name} {r.user.surname}</p>
@@ -87,7 +118,7 @@ function SingleReservation({r, flag}){
             <div className="reservationCardRequest">
                 <div className="reservationCardRequestContainer">
                         <div className="rcrc1">
-                            <h3 className="reservationClass1">{r.period.date}</h3>
+                            <h3 className="reservationClass1">{today}</h3>
                             {/* <br/> */}
                             <h3 className="reservationClass1">{r.period.time}h</h3>
                             <p>{r.user.name} {r.user.surname}</p>
@@ -119,18 +150,28 @@ function SingleReservation({r, flag}){
                     <p className="statusRed">Status: Odbijen</p>
                 ):(<></>)}
             <div className="reservationClass">
-                <p className="reservationClass1">1 x čas, instruktor {r.period.instructor.name} {r.period.instructor.surname}, datum {r.period.date}, početak {r.period.time}h</p>
-                <p>{r.period.price}€</p>
+                <p className="reservationClass1">1 x čas, instruktor {r.period.instructor.name} {r.period.instructor.surname}, datum {today}, početak {r.period.time}h</p>
+                <p className="price">{r.period.price}€</p>
             </div>
             {equipment.map((e)=>(
                 <div className="reservationClass">
-            <p className="reservationClass1">1 x {e.name}, {e.description} {e.pivot.equipmentInformation}</p>
-                <p>{e.price}€</p>
-            </div>
+                    <p className="reservationClass1">1 x {e.name}, {e.description} {e.pivot.equipmentInformation}</p>
+                    <p className="price">{e.price}€</p>
+                    <p onClick={() => removeComponent(e.id)} className="x" type="button" value={e.id} name={e.id}>x</p>
+                </div>
             ))}
-            <p>Ukupno: {r.totalPrice}€</p>
+            {totalPriceReservation>0 ? (
+                <p>Ukupno: {totalPriceReservation}€</p>
+            ):(
+                <p>Ukupno: Gratis</p>
+            )}
+            
             {flag==-1 ? (
-            <button className="reservationButton" onClick={sendRequest}>Potvrdi rezervaciju</button>):(<></>)}
+                <div className="buttonsForReservation">
+                    <button className="reservationButton2" onClick={giveupRequest}>Odustani</button>
+                    <button className="reservationButton2" onClick={updateReservation}>Uredi rezervaciju</button>
+                    <button className="reservationButton2" onClick={sendRequest}>Potvrdi rezervaciju</button>
+                </div>):(<></>)}
         </div>
     );
 }

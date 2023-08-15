@@ -42,7 +42,7 @@ function NavBar(){
                  </li>
 
                  <li>
-                     <Link className="links" to="/instructors">Instruktori</Link>
+                     <Link className="links" to="/instructors/0">Instruktori</Link>
                  </li>
 
                  <li>
@@ -96,11 +96,11 @@ function NavBar(){
                     </li>
     
                     <li>
-                        <Link className="links" to="/instructors">Instruktori</Link>
+                        <Link className="links" to="/instructors/0">Instruktori</Link>
                     </li>
     
                     <li>
-                        <Link className="links" to="/requests">Zahtevi</Link>
+                        <Link className="links" to="/requests/0">Zahtevi</Link>
                     </li>
 
                     <li>
@@ -180,7 +180,7 @@ function NavBar(){
                 </li>
 
                 <li>
-                    <Link className="links" to="/instructors">Instruktori</Link>
+                    <Link className="links" to="/instructors/0">Instruktori</Link>
                 </li>
 
                 <li>

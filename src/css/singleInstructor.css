@@ -84,3 +84,7 @@
     background-color: rgb(247, 10, 211);
     border-color:  rgb(247, 10, 211);
 }
+
+.needWidth{
+    width: 170px;
+}

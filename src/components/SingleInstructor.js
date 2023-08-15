@@ -1,22 +1,16 @@
 import "../css/singleInstructor.css";
 import axios from "axios";
-import InstructorClasses from "./InstructorClasses";
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { useNavigate, Link } from "react-router-dom";
-//import { useHistory } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-function SingleInstructor({i, flag}){
+function SingleInstructor({i, flag, onReturnValue}){
 
-    //const history=useHistory();
-
-    //let navigate=useNavigate();
-    const ins = i.id;
 
     function deleteInstructor(){
         i.status=2;
         axios.post("http://127.0.0.1:8000/api/updateInstructor", i).then((res)=>{
             if(res.data.success=="true"){
                 alert("Instruktor je uspešno uklonjen!");
+                sendDataToParent(i.id);
             }else{
                 alert("Došlo je do greške prilikom brisanja!");
             }  
@@ -24,13 +18,17 @@ function SingleInstructor({i, flag}){
             console.log(e);
             alert("Došlo je do greške prilikom brisanja!");
         });
+        
+        
     }
 
     function acceptInstructor(){
         i.status=1;
         axios.post("http://127.0.0.1:8000/api/updateInstructor", i).then((res)=>{
             if(res.data.success=="true"){
+                sendDataToParent(i.id);
                 alert("Zahtev je uspešno prihvaćen!");
+                
             }else{
                 alert("Došlo je do greške prilikom obrade zahteva!");
             }  
@@ -40,11 +38,15 @@ function SingleInstructor({i, flag}){
         });
     }
 
+    function sendDataToParent(id){
+        onReturnValue(id);
+    };
+
     return(
         <div>
             {i.id%2===0 ? 
             (<div className="instructorCard1">
-                <div>
+                <div className="needWidth">
                 <h5>{i.name} {i.surname}</h5>
                 <p>{i.description}</p>
                 <p>Planina: {i.mountain.name}</p>
@@ -76,7 +78,7 @@ function SingleInstructor({i, flag}){
                 <div>
                 <img src={i.photo} alt="instructor photo" className="instructorPhoto2"></img>
                 </div>
-                <div>
+                <div className="needWidth">
                 <h5>{i.name} {i.surname}</h5>
                 <p>{i.description}</p>
                 <p>Planina: {i.mountain.name}</p>

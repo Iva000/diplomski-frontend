@@ -38,7 +38,7 @@ function App() {
         />
 
         <Route
-        path="instructors"
+        path="instructors/:fromMountain"
         element={<Instructors flag={1}/>}/>
 
         <Route
@@ -62,7 +62,7 @@ function App() {
         element={<InstructorLogin/>}/>
 
         <Route
-        path="requests"
+        path="requests/:fromMountain"
         element={<Instructors flag={0}/>}/>
 
         <Route
